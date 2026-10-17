@@ -17,17 +17,9 @@ option "operating_currency" "CNY" ;账本主货币
     Equity:OpenBalance        -10000.00 CNY
 
 
-2026-10-17 * "杭州出租车公司" "打车到公司，银行卡支付"
-    Expenses:Traffic:Taxi        20.00 CNY
-    Assets:Card:1234            -20.00 CNY
 
 
-2026-10-16 * "杭州出租车公司" "打车到公司，银行卡支付"
-    Expenses:Traffic:Taxi        12.00 CNY
-    Assets:Card:1234          
-
-
-2026-10-16 * "杭州出租车公司" "打车到公司，银行卡支付"
+2026-10-11 * "杭州出租车公司" "打车到公司，银行卡支付"
     Expenses:Traffic:Taxi2        120.00 CNY
     Assets:Card:1234       
 
@@ -38,4 +30,7 @@ option "operating_currency" "CNY" ;账本主货币
 
 
 2026-10-01 custom "budget" Expenses:Traffic:Taxi "MONTHLY" 100 CNY
+
+
+2026-10-17 custom "budget" Expenses:Traffic:Taxi2 "DAILY" 111 CNY
 
