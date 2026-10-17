@@ -1,60 +1,46 @@
-; 预算更新演示：同一天连续写入 2222、111、222，最后生效的是 222。
-; 请把本文件放进一个全新的账本，避免和现有账本的数据混淆。
+;【一、账本信息】
+option "title" "我的账本" ;账本名称
+option "operating_currency" "CNY" ;账本主货币
 
-option "title" "预算更新演示"
-option "operating_currency" "CNY"
+;【二、账户设置】
+;1、开设账户
+1990-01-01 open Assets:Card:1234 CNY, USD ;尾号1234的银行卡，支持CNY和USD
+1990-01-01 open Assets:Card:工商 CNY, USD ;尾号1234的银行卡，支持CNY和USD
 
-2026-09-01 open Assets:Bank:Wallet CNY
-2026-09-01 open Expenses:Food CNY
-2026-09-01 open Expenses:健康 CNY
-2026-09-01 open Equity:Opening-Balances CNY
+1990-01-01 open Liabilities:CreditCard:5678 CNY, USD ;双币信用卡
+1990-01-01 open Income:Salary CNY ;工资收入
+1990-01-01 open Income:副业 CNY ;副业
 
-2026-09-01 * "期初余额"
-  Assets:Bank:Wallet          10000 CNY
-  Equity:Opening-Balances    -10000 CNY
+1990-01-01 open Expenses:Tax车 CNY ;交税
+1990-01-01 open Expenses:Traffic:Taxi CNY ;打车消费，只支持CNY
+1990-01-01 open Equity:OpenBalance ;用于账户初始化，支持任意货币
 
-; 9 月餐饮合计 800 + 600 + 700 = 2100 CNY
-2026-09-05 * "超市" "九月餐饮 1"
-  Expenses:Food                 800 CNY
-  Assets:Bank:Wallet           -800 CNY
+;2、账户初始化
+2019-08-27 * "" "银行卡，初始余额10000元"
+    Assets:Card:1234           10000.00 CNY
+    Equity:OpenBalance        -10000.00 CNY
+2019-08-27 * "" "银行卡，初始余额10000元"
+    Assets:Card:工商           20000.00 CNY
+    Equity:OpenBalance        -20000.00 CNY
+;【三、交易记录】
+2019-08-28 * "杭州出租车公司" "打车到公司，银行卡支付"
+    Expenses:Traffic:Taxi        200.00 CNY
+    Liabilities:CreditCard:5678            -200.00 CNY
 
-2026-09-12 * "餐厅" "九月餐饮 2"
-  Expenses:Food                 600 CNY
-  Assets:Bank:Wallet           -600 CNY
+;【三、交易记录】
+2019-08-28 * "杭州出租车公司" "打车到公司，银行卡支付"
+    Expenses:Traffic:Taxi        200.00 CNY
+    Assets:Card:1234            -200.00 CNY
 
-2026-09-20 * "外卖" "九月餐饮 3"
-  Expenses:Food                 700 CNY
-  Assets:Bank:Wallet           -700 CNY
+2019-08-29 * "" "餐饮"
+    Assets:Card:1234           -1100.00 CNY
+    Liabilities:CreditCard:5678 1100.00 CNY
+    
+2019-08-31 * "XX公司" "工资收入"
+    Assets:Card:1234           12000.00 CNY
+    Expenses:Tax车                1000.00 CNY
+    Income:Salary             
 
-; 10 月餐饮合计 1200 + 900 + 700 = 2800 CNY
-2026-10-02 * "超市" "十月餐饮 1"
-  Expenses:Food                1200 CNY
-  Assets:Bank:Wallet          -1200 CNY
-
-2026-10-10 * "餐厅" "十月餐饮 2"
-  Expenses:Food                 900 CNY
-  Assets:Bank:Wallet           -900 CNY
-
-2026-10-18 * "外卖" "十月餐饮 3"
-  Expenses:Food                 700 CNY
-  Assets:Bank:Wallet           -700 CNY
-
-; 预算版本记录。它们不会相加，每条都是同一账户、同一币种、
-; 同一时间间隔下的一份“目标版本”，以日期决定何时生效。
-2026-09-01 custom "budget" Expenses:Food "MONTHLY" 2500 CNY
-2026-10-01 custom "budget" Expenses:Food "MONTHLY" 5000 CNY
-
-; 同一天连续更新三次。文件中最后追加的 222 才是最终值。
-2026-10-18 custom "budget" Expenses:Food "MONTHLY" 2222 CNY
-
-2026-10-03 * "减龄（北京）科技有限公司" "微信支付账单同步"
-  Assets:Bank:Wallet                                   -336 CNY
-  Expenses:健康                                           336 CNY
-
-
-2026-10-18 * "餐厅" "" ^att_cdda54b948b84798aeabf9189767139d
-  Expenses:Food                                           1 CNY
-  Assets:Bank:Wallet                                     -1 CNY
-
-2026-10-18 document Expenses:Food "documents/2026-10-18-att_cdda54b948b84798aeabf9189767139d.jpg" ^att_cdda54b948b84798aeabf9189767139d
-
+2019-08-31 * "XX公司" "工资收入"
+    Assets:Card:工商           12000.00 CNY
+    Income:副业           
