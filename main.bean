@@ -44,9 +44,6 @@ option "operating_currency" "CNY" ;账本主货币
 2019-08-31 * "XX公司" "工资收入"
     Assets:Card:工商           12000.00 CNY
     Income:副业           
-2026-10-17 * "XX公司" "" ^att_3b16ced0618e4f4893e201a02e347835
-  Income:Salary                                           1 CNY
-  Assets:Card:工商                                         -1 CNY
 
 2026-10-17 document Income:Salary "documents/2026-10-17-att_3b16ced0618e4f4893e201a02e347835.jpg" ^att_3b16ced0618e4f4893e201a02e347835
 
