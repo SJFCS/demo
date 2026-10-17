@@ -4,6 +4,22 @@ option "operating_currency" "CNY" ;账本主货币
 
 ;【二、账户设置】
 ;1、开设账户
+
+1990-01-01 open Assets:MyFavouriteBank:Cash CNY ;工资收入1
+1990-01-01 open Assets:MyFavouriteBank:Caasdasdasdsad CNY ;工资收入2
+1990-01-01 open Expenses:Groceries  CNY ;工资收入3
+
+
+2024-02-15 * "Some transaction for Expenses:Groceries"
+  Assets:MyFavouriteBank:Cash -37 CNY
+  Expenses:Groceries 37 CNY
+
+2024-02-15 * "Some transaction for Expenses:Groceries"
+  Assets:MyFavouriteBank:Caasdasdasdsad -317 CNY
+  Expenses:Groceries 317 CNY
+
+
+;1、开设账户
 1990-01-01 open Assets:Card:1234 CNY, USD ;尾号1234的银行卡，支持CNY和USD
 1990-01-01 open Assets:Card:工商 CNY, USD ;尾号1234的银行卡，支持CNY和USD
 
@@ -28,7 +44,7 @@ option "operating_currency" "CNY" ;账本主货币
     Liabilities:CreditCard:5678            -200.00 CNY
 
 ;【三、交易记录】
-2019-08-28 * "杭州出租车公司" "打车到公司，银行卡支付2"
+2019-08-28 * "杭州出租车公司" "打车到公司，银行卡支付"
     Expenses:Traffic:Taxi        200.00 CNY
     Assets:Card:1234            -200.00 CNY
 
@@ -41,16 +57,8 @@ option "operating_currency" "CNY" ;账本主货币
     Expenses:Tax车                1000.00 CNY
     Income:Salary             
 
-
-
-
-
-
-
-2026-10-17 * "XX公司" "银行卡，初始余额10000元"
-  Assets:Card:工商                                          1 CNY
-  Assets:Card:1234                                       -1 CNY
-
-
-
+2019-08-31 * "XX公司" "工资收入"
+    Assets:Card:工商           12000.00 CNY
+    Income:副业           
+2026-10-17 custom "budget" Assets:Card:1234 "MONTHLY" 1111 CNY
 
