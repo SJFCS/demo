@@ -6529,3 +6529,6 @@ option "operating_currency" "USD"
 
 2026-10-17 balance Liabilities:AccountsPayable          111 USD
 
+
+2026-10-17 note Liabilities:AccountsPayable "qwe"
+
