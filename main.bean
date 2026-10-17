@@ -6525,3 +6525,7 @@ option "operating_currency" "USD"
 
 2026-10-17 custom "budget" Equity:Opening-Balances "MONTHLY" 11 USD
 
+2026-10-17 custom "demoxx" Equity:Opening-Balances "MONTHLY" 11 USD
+
+2026-10-17 balance Liabilities:AccountsPayable          111 USD
+
