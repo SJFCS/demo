@@ -6541,3 +6541,10 @@ option "operating_currency" "USD"
 
 2026-10-17 document Liabilities:AccountsPayable "documents/2026-10-17-att_32d1d693125f4c91b44fba7285a899d3.jpg" ^att_32d1d693125f4c91b44fba7285a899d3
 
+
+2026-10-17 * "Hoogle" "" ^att_ddfa904ee4d84bab96a9210cedb68c41
+  Liabilities:AccountsPayable                             1 USD
+  Liabilities:US:Chase:Slate                             -1 USD
+
+2026-10-17 document Liabilities:AccountsPayable "documents/2026-10-17-att_ddfa904ee4d84bab96a9210cedb68c41.jpg" ^att_ddfa904ee4d84bab96a9210cedb68c41
+
