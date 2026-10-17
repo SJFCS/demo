@@ -1,0 +1,5 @@
+;document 指令，它表示“把某个外部文件关联到某个账户”，比如把银行对账单 PDF、发票、截图挂到对应账户下。
+;它只是建立关联，不会把文件内容读进账本。
+
+
+2024-01-31 document Assets:Bank:Checking "statements/2024-01.pdf"
