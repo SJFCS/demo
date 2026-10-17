@@ -28,7 +28,7 @@ option "operating_currency" "CNY" ;账本主货币
     Liabilities:CreditCard:5678            -200.00 CNY
 
 ;【三、交易记录】
-2019-08-28 * "杭州出租车公司" "打车到公司，银行卡支付"
+2019-08-28 * "杭州出租车公司" "打车到公司，银行卡支付2"
     Expenses:Traffic:Taxi        200.00 CNY
     Assets:Card:1234            -200.00 CNY
 
