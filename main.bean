@@ -56,5 +56,4 @@ option "operating_currency" "CNY" ;账本主货币
   Assets:Card:工商                                          2 CNY
   Assets:Card:1234                                       -2 CNY
 
-2026-10-17 document Assets:Card:工商 "documents/2026-10-17-att_59f1b866bb924f2a86b8ef66189e57fb.png" ^att_59f1b866bb924f2a86b8ef66189e57fb
 
