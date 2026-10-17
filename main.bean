@@ -6518,7 +6518,7 @@ option "operating_currency" "USD"
 * Cash
 
 
-2026-10-17 ! "Cafe Modagor" ""
+2026-10-17  "Cafe Modagor" ""
   Liabilities:AccountsPayable                          1111 USD
   Equity:Opening-Balances                             -1111 USD
 
