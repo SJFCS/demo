@@ -9,6 +9,7 @@ option "operating_currency" "CNY" ;账本主货币
 
 1990-01-01 open Expenses:Traffic:Taxi CNY ;打车消费，只支持CNY
 1990-01-01 open Equity:OpenBalance ;用于账户初始化，支持任意货币
+1990-01-01 open Expenses:Traffic:Taxi2 CNY ;打车消费，只支持CNY
 
 ;2、账户初始化
 2019-08-27 * "" "银行卡，初始余额10000元"
@@ -30,4 +31,7 @@ option "operating_currency" "CNY" ;账本主货币
 
 
 2026-10-17 custom "budget" Expenses:Traffic:Taxi "DAILY" 10 CNY
+
+
+2026-10-17 custom "budget" Expenses:Traffic:Taxi2 "MONTHLY" 222 CNY
 
