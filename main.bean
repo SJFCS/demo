@@ -6522,3 +6522,6 @@ option "operating_currency" "USD"
   Liabilities:AccountsPayable                          1111 USD
   Equity:Opening-Balances                             -1111 USD
 
+
+2026-10-17 custom "budget" Equity:Opening-Balances "MONTHLY" 11 USD
+
