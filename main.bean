@@ -51,3 +51,10 @@ option "operating_currency" "CNY"
   Assets:Bank:Wallet                                   -336 CNY
   Expenses:健康                                           336 CNY
 
+
+2026-10-18 * "餐厅" "" ^att_cdda54b948b84798aeabf9189767139d
+  Expenses:Food                                           1 CNY
+  Assets:Bank:Wallet                                     -1 CNY
+
+2026-10-18 document Expenses:Food "documents/2026-10-18-att_cdda54b948b84798aeabf9189767139d.jpg" ^att_cdda54b948b84798aeabf9189767139d
+
