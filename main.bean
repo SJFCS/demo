@@ -47,7 +47,6 @@ option "operating_currency" "CNY"
 ; 同一天连续更新三次。文件中最后追加的 222 才是最终值。
 2026-10-18 custom "budget" Expenses:Food "MONTHLY" 2222 CNY
 2026-10-18 custom "budget" Expenses:Food "MONTHLY" 111 CNY
-2026-10-18 custom "budget" Expenses:Food "MONTHLY" 222 CNY
 
 2026-10-03 * "减龄（北京）科技有限公司" "微信支付账单同步"
   Assets:Bank:Wallet                                   -336 CNY
