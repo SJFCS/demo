@@ -6533,9 +6533,6 @@ option "operating_currency" "USD"
 2026-10-17 note Liabilities:AccountsPayable "qwe"
 
 
-2026-10-17 * "Hoogle" "备注" #ta审视g ^link审视ss
-  Expenses:Food:Groceries                              1111 USD
-  Liabilities:AccountsPayable                         -1111 USD
 
 
 
