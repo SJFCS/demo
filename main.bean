@@ -9,6 +9,9 @@ option "operating_currency" "USD"
 
 1970-01-01 custom "fava-option" "invert-income-liabilities-equity" "True"
 
+; Fava 的 invert-income-liabilities-equity 按官方说明只翻转 Income、Liabilities、Equity，并不把 Expenses 本身改成负数。
+
+; https://github.com/beancount/fava/blob/main/src/fava/help/options.md#invert-income-liabilities-equity
 
 * Commodities
 
