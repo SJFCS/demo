@@ -66,7 +66,6 @@ option "operating_currency" "CNY" ;账本主货币
 2026-10-18 custom "budget" Assets:Card:1234 "MONTHLY" 22222 CNY
 
 
-2026-10-18 custom "budget" Assets:Card:1234 "MONTHLY" 111 CNY
 
 
 2026-10-18 custom "budget" Assets:Card:1234 "MONTHLY" 333 CNY
