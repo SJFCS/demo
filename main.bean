@@ -44,3 +44,5 @@ option "operating_currency" "CNY" ;账本主货币
 2019-08-31 * "XX公司" "工资收入"
     Assets:Card:工商           12000.00 CNY
     Income:副业           
+2026-10-17 custom "budget" Assets:Card:工商 "MONTHLY" 111 CNY
+
