@@ -43,3 +43,10 @@ option "operating_currency" "CNY" ;账本主货币
 
 
 
+
+2026-10-17 * "XX公司" "" ^att_83ac1d5c358745c486afad06862ad666
+  Assets:Card:工商                                          1 CNY
+  Assets:Card:工商                                         -1 CNY
+
+2026-10-17 document Assets:Card:工商 "documents/2026-10-17-att_83ac1d5c358745c486afad06862ad666.jpg" ^att_83ac1d5c358745c486afad06862ad666
+
