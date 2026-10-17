@@ -6538,10 +6538,6 @@ option "operating_currency" "USD"
   Liabilities:AccountsPayable                         -1111 USD
 
 
-2026-10-17 * "Cafe Modagor" "aaaaa" ^att_32d1d693125f4c91b44fba7285a899d3
-  Liabilities:AccountsPayable                             1 USD
-  Liabilities:AccountsPayable                             1 USD
-  Expenses:Food:Coffee                                   -2 USD
 
 2026-10-17 document Liabilities:AccountsPayable "documents/2026-10-17-att_32d1d693125f4c91b44fba7285a899d3.jpg" ^att_32d1d693125f4c91b44fba7285a899d3
 
