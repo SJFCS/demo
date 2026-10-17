@@ -6548,3 +6548,10 @@ option "operating_currency" "USD"
 
 2026-10-17 document Liabilities:AccountsPayable "documents/2026-10-17-att_ddfa904ee4d84bab96a9210cedb68c41.jpg" ^att_ddfa904ee4d84bab96a9210cedb68c41
 
+
+2026-10-17 * "China Garden" "" ^att_98b1ec7ce7da40a2b48050ec2cf94500
+  Liabilities:US:Chase:Slate                              1 USD
+  Liabilities:AccountsPayable                            -1 USD
+
+2026-10-17 document Liabilities:US:Chase:Slate "documents/2026-10-17-att_98b1ec7ce7da40a2b48050ec2cf94500.jpg" ^att_98b1ec7ce7da40a2b48050ec2cf94500
+
