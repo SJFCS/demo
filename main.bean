@@ -41,8 +41,5 @@ option "operating_currency" "CNY" ;账本主货币
     Expenses:Tax车                1000.00 CNY
     Income:Salary             
 
-2019-08-31 * "XX公司" "工资收入"
-    Assets:Card:工商           12000.00 CNY
-    Income:副业           
 
 
