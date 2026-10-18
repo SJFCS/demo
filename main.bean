@@ -6533,3 +6533,6 @@ option "operating_currency" "USD"
 
 2026-10-18 custom "budget" Expenses:Food:Groceries "MONTHLY" 111 USD
 
+
+2026-10-18 custom "budget" Expenses:Food:Groceries "MONTHLY" 1 USD
+
