@@ -942,6 +942,10 @@ option "operating_currency" "USD"
   Liabilities:US:Chase:Slate                       -25.75 USD
   Expenses:Food:Restaurant                          25.75 USD
 
+2015-02-27 * "Rose Flower" "Eating out with Joe"
+  Liabilities:US:Chase:Slate                       25.75 USD
+  Expenses:Food:Restaurant                         -25.75 USD
+
 2015-03-01 * "Corner Deli" "Buying groceries"
   Liabilities:US:Chase:Slate                      -105.27 USD
   Expenses:Food:Groceries                          105.27 USD
