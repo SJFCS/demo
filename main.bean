@@ -6527,3 +6527,6 @@ option "operating_currency" "USD"
   Expenses:Food:Groceries                               300 USD
   Liabilities:US:Chase:Slate                           -300 USD
 
+
+2026-10-18 custom "budget" Expenses:Food:Groceries "MONTHLY" 11111 USD
+
