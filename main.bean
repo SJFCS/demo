@@ -1,11 +1,10 @@
-option "title" "SBI & Investment Loop Demo"
+option "title" "SBI & Investment Loop Demo (Fixed)"
 option "operating_currency" "INR"
 
-; 开启自动账户创建，避免手动声明几十个账户
 plugin "beancount.plugins.auto_accounts"
 
 ; ==========================================
-; 1. 账户定义 (对应图中的节点)
+; 1. 账户定义
 ; ==========================================
 2024-01-01 open Assets:Bank:SBI:Checking        INR
 2024-01-01 open Liabilities:CreditCard:Freedom  INR
@@ -21,57 +20,57 @@ plugin "beancount.plugins.auto_accounts"
     Assets:Bank:SBI:Checking    5,000,000.00 INR
     Equity:Opening-Balances    -5,000,000.00 INR
 
-; 平衡断言：确保初始资金到位
 2024-01-02 balance Assets:Bank:SBI:Checking   5,000,000.00 INR
 
 ; ==========================================
-; 3. 阶段一：Checking -> Credit Card (消费/充值)
-; 对应图中 Checking 流向 CreditCard 的暗红色流
+; 3. 阶段一：Checking -> Credit Card (还款)
+; 修正：Checking 减少 200,000，负债账户余额增加 200,000
 ; ==========================================
 2024-01-05 * "CC Bill Payment (Bulk)"
-    Liabilities:CreditCard:Freedom   -200,000.00 INR
-    Assets:Bank:SBI:Checking          200,000.00 INR
+    Assets:Bank:SBI:Checking         -200,000.00 INR
+    Liabilities:CreditCard:Freedom    200,000.00 INR
 
-; 这时 Checking 余额应为 4,800,000
+; 修正后检查：5,000,000 - 200,000 = 4,800,000
 2024-01-06 balance Assets:Bank:SBI:Checking   4,800,000.00 INR
 
 ; ==========================================
 ; 4. 阶段二：Checking -> Equity (大额投资)
-; 对应图中 Checking 流向 Equity 的棕色流
+; 修正：买入资产，Checking 资金流出
 ; ==========================================
 2024-01-10 * "NIFTY ETF Purchase (Large Block)"
     Assets:Equity:NIFTY             1,000,000.00 INR
     Assets:Bank:SBI:Checking       -1,000,000.00 INR
 
-; 此时 Checking 余额 3,800,000
-; Equity 余额 1,000,000
+; 修正后检查：4,800,000 - 1,000,000 = 3,800,000
 2024-01-11 balance Assets:Bank:SBI:Checking   3,800,000.00 INR
 2024-01-11 balance Assets:Equity:NIFTY        1,000,000.00 INR
 
 ; ==========================================
 ; 5. 阶段三：创建“循环” (The Loop)
-; 对应图中下方的回流箭头
 ; ==========================================
 
-; 5.1 投资收益 (Equity -> Checking) - 假设 NIFTY 分红
+; 5.1 投资收益 (Equity -> Checking) - 分红流入
 2024-02-01 * "NIFTY Dividend Payout (Loop Back)"
     Assets:Bank:SBI:Checking          50,000.00 INR
     Income:Equity:Dividends          -50,000.00 INR
 
-; 5.2 信用卡返现/退款 (CreditCard -> Checking) - 形成反向流
-2024-02-05 * "Credit Card Cashback (Loop Back)"
-    Assets:Bank:SBI:Checking          5,000.00 INR
-    Liabilities:CreditCard:Freedom   -5,000.00 INR
+; 5.2 信用卡消费 (真实的消费) - 负债增加
+2024-02-03 * "Large Purchase with CC"
+    Expenses:CC:Payment               20,000.00 INR
+    Liabilities:CreditCard:Freedom   -20,000.00 INR
 
-; 此时 Checking 余额增加，循环完成
-2024-02-06 balance Assets:Bank:SBI:Checking   3,855,000.00 INR
+; 5.3 信用卡还款 (CreditCard -> Checking 循环)
+; 修正：Checking 减少，CC 负债增加（向 0 靠近）
+2024-02-05 * "Credit Card Settlement (Loop Back)"
+    Assets:Bank:SBI:Checking          -5,000.00 INR
+    Liabilities:CreditCard:Freedom     5,000.00 INR
+
+; 修正后检查：3,800,000 + 50,000 - 5,000 = 3,845,000
+2024-02-06 balance Assets:Bank:SBI:Checking   3,845,000.00 INR
 
 ; ==========================================
-; 6. 生成大量数据 (模拟高频交易/大批量数据)
+; 6. 生成大量数据 (模拟高频交易)
 ; ==========================================
-; 使用 Python 脚本或循环生成成千上万条记录。
-; 在 Beancount 中，我们使用简单的 include 或者手动模拟几个高频样例。
-; 为了演示，这里手动写几条高密度记录，你可以想象这是 10,000 笔交易的缩影。
 
 2024-03-01 * "Daily Trade Batch 001"
     Assets:Equity:NIFTY               10,000.00 INR
@@ -85,15 +84,13 @@ plugin "beancount.plugins.auto_accounts"
     Assets:Equity:NIFTY               15,000.00 INR
     Assets:Bank:SBI:Checking         -15,000.00 INR
 
-; 信用卡刷卡消费 (反向增加负债)
-2024-03-05 * "Swiggy/Zomato Bulk Orders"
-    Expenses:CC:Payment                5,000.00 INR
-    Liabilities:CreditCard:Freedom    -5,000.00 INR
+; 3,845,000 - 10,000 - 12,000 - 15,000 = 3,808,000
+2024-03-02 balance Assets:Bank:SBI:Checking   3,808,000.00 INR
 
-; 再次还款 (形成资金回流闭环)
+; 最终还款
 2024-03-10 * "Monthly CC Settlement"
-    Liabilities:CreditCard:Freedom     5,000.00 INR
-    Assets:Bank:SBI:Checking          -5,000.00 INR
+    Assets:Bank:SBI:Checking          -10,000.00 INR
+    Liabilities:CreditCard:Freedom     10,000.00 INR
 
-; 最终余额断言
-2024-03-15 balance Assets:Bank:SBI:Checking   3,833,000.00 INR
+; 最终余额断言 3,798,000
+2024-03-15 balance Assets:Bank:SBI:Checking   3,798,000.00 INR
